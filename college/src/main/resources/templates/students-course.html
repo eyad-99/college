@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+
+ <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+          <td>student_id</td>
+           <td>student_name</td>
+          
+           <td>action</td>        
+                 
+        </tr>
+   </thead>
+   
+     <tbody th:each="student : ${studentCourse}">
+     <tr>
+                 <td th:text="${student.student.id}" />	
+                   <td th:text="${student.student.userS.name}" />	
+                 
+                 
+                <td>
+			   <a th:href="@{/instructor/showFormForAddGrade(studentId=${student.id})}"
+							   class="btn btn-info btn-sm">
+								add grade
+							</a>
+				</td>	
+			    </tr>
+			    	
+				
+   </tbody>
+   
+   
+   </table>
+   
+    <br>
+  <br>
+
+	<a th:href="@{/instructor/dashBoard}"
+			class="btn btn-primary btn-sm mr-5 mb-3">
+			back to dashboard
+		</a>
+  
+
+
+</div>
+</body>
+</html>

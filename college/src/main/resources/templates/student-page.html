@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>student</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>student transcript</h1>
+
+<h5>passed courses</h5>
+     <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+          
+          <td>course id</td>
+           <td>course name</td>
+          
+          <td>grade</td>
+        
+        </tr>
+   </thead>
+   
+     <tbody th:each="course : ${passedCourses}">
+     <tr>
+                <td th:text="${course.course.id}" />	
+                <td th:text="${course.course.name}" />	
+				<td th:text="${course.grade}" />	
+			    </tr>
+			    	
+				
+   </tbody>
+   </table>
+   
+   <h5>failed courses</h5>
+     <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+          
+          <td>course id</td>
+           <td>course name</td>
+          
+          <td>grade</td>
+        
+        </tr>
+   </thead>
+   
+     <tbody th:each="course : ${failedCourses}">
+     <tr>
+                <td th:text="${course.course.id}" />	
+                <td th:text="${course.course.name}" />	
+				<td th:text="${course.grade}" />	
+			    </tr>
+			    	
+				
+   </tbody>
+   </table>
+   <h1>registered courses</h1>
+   
+   
+    <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+          <td>course_id</td>
+          <td>course_name</td>
+           <td>hall_number</td>  
+           <td>action</td>        
+                 
+        </tr>
+   </thead>
+   
+     <tbody th:each="course : ${registeredCourses}">
+     <tr>
+                 <td th:text="${course.course.id}" />	
+                <td th:text="${course.course.name}" />	
+                <td th:text="${course.course.hallNumber}" />
+                <td>
+			   <a th:href="@{/student/deleteRegistered(courseId=${course.course.id})}"
+							   class="btn btn-info btn-sm">
+								delete
+							</a>
+				</td>	
+			    </tr>
+			    	
+				
+   </tbody>
+   </table>
+   
+    
+      <h1>available courses for registering</h1>
+   
+   
+    <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+          <td>course_id</td>
+          <td>course_name</td>
+           <td>hall_number</td>  
+           <td>action</td>        
+                 
+        </tr>
+   </thead>
+   
+     <tbody th:each="course : ${avilableCourses}">
+     <tr>
+                 <td th:text="${course.id}" />	
+                <td th:text="${course.name}" />	
+                <td th:text="${course.hallNumber}" />
+                <td>
+			   <a th:href="@{/student/register(courseId=${course.id})}"
+							   class="btn btn-info btn-sm">
+								register
+							</a>
+				</td>	
+			    </tr>
+			    	
+				
+   </tbody>
+   </table>
+   
+    
+   
+	
+   
+</div>
+
+
+
+</body>
+</html>

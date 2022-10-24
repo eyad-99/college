@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>instructor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<div class="container">
+
+
+  
+   <h1>your courses</h1>
+   
+   
+    <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+          <td>course_id</td>
+          <td>course_name</td>
+           <td>hall_number</td>  
+           <td>action</td>        
+                 
+        </tr>
+   </thead>
+   
+     <tbody th:each="course : ${courses}">
+     <tr>
+                 <td th:text="${course.id}" />	
+                <td th:text="${course.name}" />	
+                <td th:text="${course.hallNumber}" />
+                <td>
+			   <a th:href="@{/instructor/showStudents(courseId=${course.id})}"
+							   class="btn btn-info btn-sm">
+								show students
+							</a>
+				</td>	
+			    </tr>
+			    	
+				
+   </tbody>
+   </table>
+
+
+
+</div>
+
+</body>
+</html>

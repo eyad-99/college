@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Save Employee</title>
+</head>
+<body>
+<div class="container">
+
+
+ <h3>user Directory</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Save course</p>
+
+
+<form th:action="@{/admin/saveCourse}" th:object="${course}" >
+
+     <!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+			<label>hall number</label>
+			<input type="text" th:field="*{hallNumber}"
+					class="form-control mb-4 col-4" placeholder="hall">
+           			<label>course name</label>
+			<input type="text" th:field="*{name}"
+					class="form-control mb-4 col-4" placeholder="name">
+     			<label>instructor id</label>
+			<input type="text" th:field="*{instructor.id}"
+					class="form-control mb-4 col-4" placeholder="instructor">
+					
+			
+			
+			<button type="submit" class="btn btn-info col-2">Save course</button>
+
+
+
+</form>
+
+  <br>
+  <br>
+
+	<a th:href="@{/admin/dashBoard}"
+			class="btn btn-primary btn-sm mr-5 mb-3">
+			back to dashboard
+		</a>
+
+
+</div>
+
+</body>
+</html>
